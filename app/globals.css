@@ -6,10 +6,10 @@
 @theme {
   --color-primary: #8f56cc;
   --color-secondary: #5d4ec4;
-  --color-base: #e6ebf4
+  --color-base: #e6ebf4;
   --color-content: #22232c;
   --color-content-alter: #717586;
-  --color-outer: #d1d5e0
+  --color-outer: #d1d5e0;
 }
 
 @layer base {
@@ -20,4 +20,8 @@
   body {
     @apply bg-base text-content;
   }
+}
+
+.custom-gradient {
+  background: linear-gradient(135deg, #8f56cc 0%, #5d4ec4 100%);
 }
