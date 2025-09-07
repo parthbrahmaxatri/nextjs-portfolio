@@ -1,6 +1,7 @@
 "use client";
 
 import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
 
       {/* Components */}
       <Navbar />
+      <Hero />
     </div>
   );
 }
