@@ -43,7 +43,7 @@ export const Hero = () => {
 
         {/* Title */}
         <h1 className="text-3xl md:text-5xl font-semibold mt-2 leading-tight">
-          Frontend Heavy <br className="md:hidden" /> Full Stack Developer
+          Full Stack, but <br className="md:hidden" /> frontend is my love language💻❤️
         </h1>
 
         {/* Icons Swipe */}

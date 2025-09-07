@@ -33,8 +33,8 @@ export const Portfolio = () => {
           <PiStarFourFill className="text-lg" />
           Portfolio
         </p>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gradient mb-8">
-          Check out my featured <br /> projects{" "}
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gradient mb-8">          
+          Flexin’ my builds
         </h2>
       </div>
 
@@ -49,7 +49,7 @@ export const Portfolio = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-64 md:h-[450px] object-cover"
+                className="w-full h-64 md:h-[350px] object-cover"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black-60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
