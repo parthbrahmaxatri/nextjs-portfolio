@@ -5,6 +5,7 @@ import { Hero } from "./components/Hero";
 import { Portfolio } from "./components/Portfolio";
 import { About } from "./components/About";
 import { Resume } from "./components/Resume";
+import { Contact } from "./components/Contact";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Portfolio />
       <About />
       <Resume />
+      <Contact />
     </div>
   );
 }
