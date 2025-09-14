@@ -103,8 +103,8 @@ export const Contact = () => {
             Send Message <FaPaperPlane />
           </button>
         </div>
+        <span>{result}</span>
       </form>
-      <span className="max-w-4xl mx-auto">{result}</span>
     </section>
   );
 };
