@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PiChatDotsBold } from "react-icons/pi";
 import { RiMenu4Line, RiCloseLine } from "react-icons/ri";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
   // Nav Links Array
 
   const navLinks = [
@@ -14,6 +16,16 @@ export const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  // Change header background on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -23,7 +35,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-out">
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-out ${isScrolled ? 'bg-white/30 backdrop-blur-lg shadow-sm' : ""}`}>
       <nav className="flex items-center justify-between max-w-6xl mx-auto w-[90%] py-4">
         {/* Logo */}
         <a href="#" className="text-2xl md:text-3xl font-bold mr-6">
@@ -31,7 +43,7 @@ export const Navbar = () => {
         </a>
 
         {/* Nav Links */}
-        <div className="hidden min-[825px]:flex items-center gap-4 bg-base shadow-lg opacity-80 px-8 py-3 rounded-full">
+        <div className={`hidden min-[825px]:flex items-center gap-4 bg-base shadow-lg opacity-80 px-8 py-3 rounded-full ${isScrolled ? "bg-transparent shadow-none opacity-100" : ""}`}>
           {navLinks.map((link, index) => (
             <a
               key={index}
