@@ -1,6 +1,7 @@
 import React from "react";
 import { PiStarFourFill } from "react-icons/pi";
 import { FaPaperPlane } from "react-icons/fa";
+import { motion } from "motion/react";
 
 export const Contact = () => {
   const [result, setResult] = React.useState("");
@@ -28,10 +29,26 @@ export const Contact = () => {
     }
   };
 
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.2 } },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
     <section className="mt-12 pb-8" id="contact">
       {/* Heading */}
-      <div className="text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center"
+      >
         <p className="text-content font-semibold inline-flex items-center gap-1 border-1 border-outer py-1.5 px-3 rounded-2xl mb-4">
           <PiStarFourFill className="text-lg" />
           Contact
@@ -39,16 +56,21 @@ export const Contact = () => {
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gradient mb-8">
           Let's make something <br className="md:hidden" /> awesome together!
         </h2>
-      </div>
+      </motion.div>
 
       {/* Contact Form */}
-      <form
+      <motion.form
+        variants={container}
+        initial="hidden"
+        whileInView={"show"}
         onSubmit={onSubmit}
         className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-4 text-xl font-semibold"
       >
         {/* Left Side */}
         <div className="flex flex-col space-y-6">
-          <input
+          <motion.input
+            variants={item}
+            whileFocus={{ scale: 1.02 }}
             type="text"
             name="name"
             id=""
@@ -56,7 +78,9 @@ export const Contact = () => {
             required
             className="border-b-2 border-outer bg-transparent focus:outline-none focus:border-primary py-3"
           />
-          <input
+          <motion.input
+            variants={item}
+            whileFocus={{ scale: 1.02 }}
             type="email"
             name="email"
             id=""
@@ -67,7 +91,9 @@ export const Contact = () => {
         </div>
         {/* Right Side */}
         <div className="flex flex-col space-y-6">
-          <input
+          <motion.input
+            variants={item}
+            whileFocus={{ scale: 1.02 }}
             type="text"
             name="Company"
             id=""
@@ -75,7 +101,9 @@ export const Contact = () => {
             required
             className="border-b-2 border-outer bg-transparent focus:outline-none focus:border-primary py-3"
           />
-          <input
+          <motion.input
+            variants={item}
+            whileFocus={{ scale: 1.02 }}
             type="tel"
             name="Phone"
             id=""
@@ -86,25 +114,29 @@ export const Contact = () => {
         </div>
         {/* Text area */}
         <div className="md:col-span-2 ">
-          <textarea
+          <motion.textarea
+            variants={item}
+            whileFocus={{ scale: 1.02 }}
             name="message"
             id=""
             placeholder="A Few Words*"
             required
             className="w-full border-b-2 borer-outer bg-transparent focus:outline-none focus:border-primary py-2 h-24 resize-none"
-          ></textarea>
+          ></motion.textarea>
         </div>
         {/* Button */}
         <div className="md:col-span-2">
-          <button
+          <motion.button
+            variants={item}
+            whileFocus={{ scale: 1.05 }}
             type="submit"
             className="mt-6 custom-gradient text-white text-[1rem] font-semibold py-3 px-6 rounded-2xl flex items-center gap-2 hover:opacity-90 transition-opacity cursor-pointer"
           >
             Send Message <FaPaperPlane />
-          </button>
+          </motion.button>
         </div>
         <span>{result}</span>
-      </form>
+      </motion.form>
     </section>
   );
 };
